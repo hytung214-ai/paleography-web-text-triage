@@ -2,6 +2,8 @@
 
 This project builds an embedding-based classifier for triaging short web text snippets related to Ancient Chinese paleography. The goal is to decide whether a snippet should be kept as scholarly discussion, primary transcription, dictionary/reference content, or discarded as noise when building a specialized paleography information retrieval corpus.
 
+The current system primarily targets Chinese paleography-related text. English interface text is provided for usability, but the training and evaluation data are Chinese; English or mixed-language test inputs are outside the main target distribution and may be over-classified as `noise`.
+
 The task is not ancient character recognition. It is a corpus filtering and document routing task: given a short text snippet from a public web source, classify what kind of material it is and whether it is useful for a paleography-focused collection.
 
 ## Research Question
@@ -31,7 +33,7 @@ Metadata and catalogue records also exist in the wider paleography data environm
 
 ## Dataset
 
-The dataset contains 400 manually labeled Chinese snippets collected from public paleography-related web sources and reference pages.
+The dataset contains 400 manually labeled Chinese snippets collected from public paleography-related web sources and reference pages. The intended input is therefore a Chinese snippet from a paleography-related webpage or reference source.
 
 | Split | Rows | Per-label distribution |
 |---|---:|---|
@@ -54,7 +56,7 @@ The processed files are:
 - `data/processed/validation.csv`
 - `data/processed/test.csv`
 
-The original evaluation remains in Chinese. This is intentional: translating all snippets into English would change the genre signals that the task depends on, especially for primary transcriptions and dictionary entries. For readability, `report/bilingual_examples.md` provides representative test-set examples with English glosses.
+The original evaluation remains in Chinese. This is intentional: translating all snippets into English would change the genre signals that the task depends on, especially for primary transcriptions and dictionary entries. For readability, `report/bilingual_examples.md` provides representative test-set examples with English glosses. Users should test the demo with Chinese paleography-related snippets; English examples may receive unreliable predictions and can be biased toward `discard_noise_irrelevant`.
 
 ## Method
 
@@ -103,7 +105,7 @@ Detailed reports are stored in `results/`, including classification reports, con
 
 ## Demo
 
-The project includes a Gradio demo with English and Chinese interface modes. Users can paste a snippet and receive:
+The project includes a Gradio demo with English and Chinese interface modes. The interface can be shown in either language, but the classifier itself is intended mainly for Chinese paleography-related snippets. Users can paste a snippet and receive:
 
 - predicted label
 - class confidence table
@@ -199,7 +201,7 @@ README.md
 ## Limitations
 
 - The dataset is small and domain-specific, with 400 manually labeled samples.
-- All final samples are Chinese, so performance on English or mixed-language sources is not tested.
+- All final samples are Chinese, so performance on English or mixed-language sources is not tested. English inputs may be incorrectly treated as out-of-domain noise.
 - Some labels are inherently ambiguous. Short scholarly comments may look like dictionary entries or primary source quotations.
 - The dataset is drawn from a limited set of public sources, so source style may influence the classifier.
 - Metadata and catalogue records were excluded as a separate class because they are better treated as structured extraction problems.

@@ -6,7 +6,11 @@
 
 This guideline defines how text snippets are labeled for the Paleography Web Text Triage Classifier. The classifier routes short web snippets into categories useful for building an Ancient Chinese paleography information retrieval corpus.
 
+The current annotation scheme is designed primarily for Chinese paleography-related text. English or mixed-language snippets are allowed by the schema, but they are outside the main target distribution of the final dataset and may be harder for the trained classifier to distinguish from `noise`.
+
 本指南说明古文字学网页文本分流分类器的数据如何标注。分类器的目标是把短网页片段分到适合古文字学信息检索语料建设的类别中。
+
+当前标注体系主要面向中文古文字学相关文本。字段设计允许英文或混合语片段，但它们不属于最终数据集的主要目标分布，训练后的分类器可能较难区分这些输入和 `noise`。
 
 The task is not to recognize ancient character shapes or to provide expert interpretation of inscriptions. The task is to identify the main function of a text snippet: scholarly discussion, primary transcription, dictionary or reference entry, or irrelevant noise.
 
@@ -168,6 +172,10 @@ The final CSV files use five columns:
 | `label` | One of `ksd`, `kpt`, `kde`, or `noise`. |
 | `source_url` | Public source URL or source reference. |
 | `language` | `chinese`, `english`, or `mixed`. |
+
+In the final dataset, `language` is currently `chinese` for all included samples. English or mixed-language values are kept as possible schema values for future expansion.
+
+在最终数据集中，所有已纳入样本的 `language` 当前均为 `chinese`。`english` 和 `mixed` 保留为未来扩展时可用的字段值。
 
 ## Quality Rules
 ## 质量规则
