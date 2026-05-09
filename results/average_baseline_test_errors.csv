@@ -1,0 +1,6 @@
+id,text,label,source_url,language,gold_label,predicted_label
+102,“文武”指文王、武王。晉國始封君唐叔虞爲武王子，所以祭祀自文武始。《左傳·哀公二年》載衛太子在戰場上禱告：“曾孫蒯聵敢昭告皇祖文王、烈祖康叔、文祖襄公：……”衛國始封君衛康叔爲文王子、武王弟，所以其禱告自文王始而不及武王。,ksd,https://www.fdgwz.org.cn/Web/Show/13353,chinese,ksd,kde
+261,「人」指人類，,kde,https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/oraclePiece.php?piece=%E4%BA%BA,chinese,kde,kpt
+306,k較爲集中的著録見吳硯君《盛世璽印録（修訂本）》（西泠印社出版社2021）,ksd,https://www.fdgwz.org.cn/Web/Show/11138,chinese,ksd,noise
+340,乖違邪僻和莊重嚴正正好反義對舉。,ksd,https://www.fdgwz.org.cn/Web/Show/4633,chinese,ksd,kpt
+346,丸与完双声叠韵。,ksd,https://www.fdgwz.org.cn/Web/Show/2545,chinese,ksd,kpt

@@ -1,0 +1,15 @@
+{
+  "classes": [
+    "kde",
+    "kpt",
+    "ksd",
+    "noise"
+  ],
+  "descriptions": {
+    "kpt": "keep_primary_transcription",
+    "kde": "keep_dictionary_entry",
+    "ksd": "keep_scholarly_discussion",
+    "noise": "discard_noise_irrelevant"
+  },
+  "embedding_model": "intfloat/multilingual-e5-small"
+}

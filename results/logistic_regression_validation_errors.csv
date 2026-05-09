@@ -1,0 +1,10 @@
+id,text,label,source_url,language,gold_label,predicted_label
+103,“昭穆”如果理解爲昭王、穆王，則有些不合情理，因爲其上還有成王、康王，且昭王、穆王與晉國世系無關。這裏“昭穆”指的應該是宗廟祭祀中按昭穆排序的晉國先公。,ksd,https://www.fdgwz.org.cn/Web/Show/13353,chinese,ksd,kpt
+119,上博簡八《李頌》有下引文句：,ksd,https://www.fdgwz.org.cn/Web/Show/13350,chinese,ksd,kde
+180,資料庫所收音讀，其字於《廣韻》若有註為「俗」、「上同」、「亦同」、「古文」、「籀文」等異體者，該音讀亦收錄於各異體字之下，惟若字義與今義已有差別者則不收。,noise,https://xiaoxue.iis.sinica.edu.tw/ccr,chinese,noise,ksd
+288,「京」與「高」的形體相近，後來在「高」字下加「口」以作區別。,kde,https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/oraclePiece.php?piece=%E4%BA%AC,chinese,kde,ksd
+319,《書·秦誓》的“善諞言”，應指善於用便巧的言語對君上產生不好的影響。,ksd,https://www.fdgwz.org.cn/Web/Show/11019,chinese,ksd,kde
+341,嬭加編鐘銘文的“楚既為遊”，即謂楚國既為曾國的友邦，套用現在的話說，就是“兩國之間友好往來”。,ksd,https://www.fdgwz.org.cn/Web/Show/4568,chinese,ksd,kde
+342,這幾句銘文大意是加嬭說：我是楚文王的子孫、楚穆王的長女，出嫁到曾國，不是我要給曾國帶來恥辱（此為自謙的說法），楚國既已為曾國的友好往來之邦，我才來到了曾國。,ksd,https://www.fdgwz.org.cn/Web/Show/4568,chinese,ksd,kde
+347,丸字也见于郭店楚简《唐虞之道》：,ksd,https://www.fdgwz.org.cn/Web/Show/2545,chinese,ksd,kde
+349,按：臤字所从的又，可以在食指上加圆点。,ksd,https://www.fdgwz.org.cn/Web/Show/2545,chinese,ksd,kde

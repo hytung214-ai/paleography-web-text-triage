@@ -1,0 +1,13 @@
+# linear_svm on test
+
+              precision    recall  f1-score   support
+
+         kde     0.8824    1.0000    0.9375        15
+         kpt     0.9375    1.0000    0.9677        15
+         ksd     1.0000    0.7333    0.8462        15
+       noise     0.9375    1.0000    0.9677        15
+
+    accuracy                         0.9333        60
+   macro avg     0.9393    0.9333    0.9298        60
+weighted avg     0.9393    0.9333    0.9298        60
+

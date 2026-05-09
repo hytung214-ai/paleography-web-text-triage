@@ -1,0 +1,13 @@
+# average_baseline on test
+
+              precision    recall  f1-score   support
+
+         kde     0.9333    0.9333    0.9333        15
+         kpt     0.8333    1.0000    0.9091        15
+         ksd     1.0000    0.7333    0.8462        15
+       noise     0.9375    1.0000    0.9677        15
+
+    accuracy                         0.9167        60
+   macro avg     0.9260    0.9167    0.9141        60
+weighted avg     0.9260    0.9167    0.9141        60
+

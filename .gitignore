@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Local agent / workspace metadata
+.codex
+.agents/
+
+# Course instructions and planning drafts
+lab3_instruction.md
+paleography_project_instruction.md
+5day_plan.md
+day3.md
+Lab 3_ Embeddings + intro agentic engineering-1.pptx
+
+# Generated embedding arrays are reproducible and large for GitHub
+data/processed/*_embeddings.npy
+
+# Local discarded rows from data cleaning
+data/raw/discarded.csv

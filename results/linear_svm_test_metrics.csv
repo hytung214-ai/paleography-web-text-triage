@@ -1,0 +1,2 @@
+model,split,accuracy,macro_f1,num_errors,prediction_distribution
+linear_svm,test,0.9333333333333333,0.9297844292803971,4,"{""kde"": 17, ""kpt"": 16, ""ksd"": 11, ""noise"": 16}"

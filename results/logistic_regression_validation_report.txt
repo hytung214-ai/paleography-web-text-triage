@@ -1,0 +1,13 @@
+# logistic_regression on validation
+
+              precision    recall  f1-score   support
+
+         kde     0.7000    0.9333    0.8000        15
+         kpt     0.9375    1.0000    0.9677        15
+         ksd     0.8000    0.5333    0.6400        15
+       noise     1.0000    0.9333    0.9655        15
+
+    accuracy                         0.8500        60
+   macro avg     0.8594    0.8500    0.8433        60
+weighted avg     0.8594    0.8500    0.8433        60
+

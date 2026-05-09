@@ -1,0 +1,2 @@
+model,split,accuracy,macro_f1,num_errors,prediction_distribution
+average_baseline,validation,0.8666666666666667,0.8665966386554622,8,"{""kde"": 19, ""kpt"": 15, ""ksd"": 13, ""noise"": 13}"

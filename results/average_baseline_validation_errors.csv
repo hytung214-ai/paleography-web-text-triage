@@ -1,0 +1,9 @@
+id,text,label,source_url,language,gold_label,predicted_label
+119,上博簡八《李頌》有下引文句：,ksd,https://www.fdgwz.org.cn/Web/Show/13350,chinese,ksd,kde
+180,資料庫所收音讀，其字於《廣韻》若有註為「俗」、「上同」、「亦同」、「古文」、「籀文」等異體者，該音讀亦收錄於各異體字之下，惟若字義與今義已有差別者則不收。,noise,https://xiaoxue.iis.sinica.edu.tw/ccr,chinese,noise,ksd
+187,本資料庫所收語料忠實記錄了殷周到春秋、戰國時期曆法、官制、地理、戰爭、法律、土地買賣、賞賜、漁獵、祭祀、嫁娶、親屬稱謂、氏族標誌、國際關係等諸多問題，這些豐富的語文材料正能補充傳統文獻之不足。,noise,https://inscription.asdc.sinica.edu.tw/c_index.php,chinese,noise,ksd
+288,「京」與「高」的形體相近，後來在「高」字下加「口」以作區別。,kde,https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/oraclePiece.php?piece=%E4%BA%AC,chinese,kde,ksd
+319,《書·秦誓》的“善諞言”，應指善於用便巧的言語對君上產生不好的影響。,ksd,https://www.fdgwz.org.cn/Web/Show/11019,chinese,ksd,kde
+341,嬭加編鐘銘文的“楚既為遊”，即謂楚國既為曾國的友邦，套用現在的話說，就是“兩國之間友好往來”。,ksd,https://www.fdgwz.org.cn/Web/Show/4568,chinese,ksd,kde
+342,這幾句銘文大意是加嬭說：我是楚文王的子孫、楚穆王的長女，出嫁到曾國，不是我要給曾國帶來恥辱（此為自謙的說法），楚國既已為曾國的友好往來之邦，我才來到了曾國。,ksd,https://www.fdgwz.org.cn/Web/Show/4568,chinese,ksd,kde
+349,按：臤字所从的又，可以在食指上加圆点。,ksd,https://www.fdgwz.org.cn/Web/Show/2545,chinese,ksd,kde

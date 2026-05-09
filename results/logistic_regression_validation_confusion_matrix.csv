@@ -1,0 +1,5 @@
+,pred_kde,pred_kpt,pred_ksd,pred_noise
+gold_kde,14,0,1,0
+gold_kpt,0,15,0,0
+gold_ksd,6,1,8,0
+gold_noise,0,0,1,14
