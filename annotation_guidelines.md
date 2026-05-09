@@ -1,146 +1,197 @@
 # Annotation Guidelines: Paleography Web Text Triage Classifier
 # 标注指南：古文字学网页文本分流分类器
 
-## Project Purpose
-## 项目目的
+## Purpose
+## 目的
 
-This dataset supports a classifier that routes web text snippets into useful categories for building an Ancient Chinese paleography information retrieval corpus.
-该数据集用于支持一个分类器，将网页文本片段分流到适合构建中国古文字学信息检索语料库的类别中。
+This guideline defines how text snippets are labeled for the Paleography Web Text Triage Classifier. The classifier routes short web snippets into categories useful for building an Ancient Chinese paleography information retrieval corpus.
 
-The task is not to identify ancient character shapes.
-本任务不是识别古文字字形。
+本指南说明古文字学网页文本分流分类器的数据如何标注。分类器的目标是把短网页片段分到适合古文字学信息检索语料建设的类别中。
 
-The task is not to professionally interpret oracle bone or bronze inscriptions.
-本任务也不是专业释读甲骨文或金文。
+The task is not to recognize ancient character shapes or to provide expert interpretation of inscriptions. The task is to identify the main function of a text snippet: scholarly discussion, primary transcription, dictionary or reference entry, or irrelevant noise.
 
-The task is to classify the function and usefulness of a text snippet.
-本任务是分类一个文本片段的功能和可用性。
+本任务不是识别古文字字形，也不是进行专业铭文释读。标注时判断的是文本片段的主要功能：学术讨论、一手释文、字典或工具书条目，或无关噪声。
 
-## Label Set
-## 标签体系
+## Labels
+## 标签
 
-### `keep_scholarly_discussion`
+The dataset uses four short labels in the CSV files. Each short label maps to a full descriptive label.
 
-Use this label when the snippet contains scholarly, explanatory, or research-oriented prose about paleography, oracle bones, bronze inscriptions, excavated texts, Chinese script history, or related topics.
-当片段包含关于古文字学、甲骨文、金文、出土文献、中国文字史或相关主题的学术性、解释性或研究性论述时，使用此标签。
+数据集在 CSV 中使用四个短标签。每个短标签对应一个完整说明性标签。
 
-Positive example type 1: an encyclopedia paragraph explaining oracle bone script.
-正例类型 1：解释甲骨文的百科段落。
+| Short label | Full label |
+|---|---|
+| `ksd` | `keep_scholarly_discussion` |
+| `kpt` | `keep_primary_transcription` |
+| `kde` | `keep_dictionary_entry` |
+| `noise` | `discard_noise_irrelevant` |
 
-Positive example type 2: an article abstract discussing bronze inscriptions or excavated manuscripts.
-正例类型 2：讨论金文或出土文献的论文摘要。
+## Label Definitions
+## 标签定义
 
-Negative example: a database row that mainly contains inscription text should usually be `keep_primary_transcription`, not this label.
-反例：主要包含铭文释文的数据库行通常应标为 `keep_primary_transcription`，而不是此标签。
+### `ksd`: `keep_scholarly_discussion`
 
-### `keep_primary_transcription`
+Use this label when the snippet contains scholarly, explanatory, or research-oriented prose about paleography, oracle bones, bronze inscriptions, excavated texts, ancient scripts, character forms, or script history.
 
-Use this label when the snippet mainly contains primary textual material, such as oracle-bone transcriptions, bronze inscription transcriptions, excavated-text transcriptions, numbered inscription text, or ancient text fragments.
-当片段主要包含一手文本材料，例如甲骨释文、金文释文、出土文献释文、带编号铭文文本或古文献片段时，使用此标签。
+当片段包含关于古文字学、甲骨文、金文、出土文献、古文字形体或文字史的学术性、解释性、研究性论述时，使用此标签。
 
-Positive example type 1: a bronze inscription transcription from a search result page.
-正例类型 1：来自检索结果页的一段金文释文。
+Typical examples:
 
-Positive example type 2: a short ancient text or inscription line with minimal explanation.
-正例类型 2：几乎没有解释的一小段古文或铭文文本。
+- encyclopedia-style explanations of oracle bone script or bronze inscriptions
+- article abstracts, introductions, or research summaries
+- interpretive discussion that cites scholars, manuscripts, inscriptions, or previous research
 
-Negative example: a modern paragraph explaining the historical importance of oracle bones should be `keep_scholarly_discussion`, not this label.
-反例：解释甲骨文历史重要性的现代段落应标为 `keep_scholarly_discussion`，而不是此标签。
+典型例子：
 
-### `keep_dictionary_entry`
+- 解释甲骨文、金文等对象的百科式段落
+- 论文摘要、引言或研究综述
+- 引用学者、简帛、铭文或既有研究的考释性讨论
 
-Use this label when the snippet is a dictionary-style, lexicon-style, or reference-style entry about a character, word, pronunciation, radical, gloss, or short definition.
-当片段是关于字、词、读音、部首、训释或简短定义的字典式、词典式或工具书式条目时，使用此标签。
+Do not use this label for snippets that are mainly raw inscription text or dictionary definitions.
 
-Positive example type 1: a Shuowen-style entry explaining a character.
-正例类型 1：《说文》式的字头解释。
+如果片段主要是原始释文或字典定义，不使用此标签。
 
-Positive example type 2: a modern dictionary entry with pronunciation, meaning, and character information.
-正例类型 2：包含读音、释义和字形信息的现代字典条目。
+### `kpt`: `keep_primary_transcription`
 
-Negative example: a museum object record that only lists period, material, and accession number should be `discard_noise_irrelevant`, not this label.
-反例：只列出年代、材质和馆藏编号的博物馆器物记录应标为 `discard_noise_irrelevant`，而不是此标签。
+Use this label when the snippet mainly contains primary textual material, such as oracle-bone transcriptions, bronze inscription transcriptions, excavated-text fragments, numbered inscription lines, or ancient source text with minimal modern explanation.
 
-### `discard_noise_irrelevant`
+当片段主要包含一手文本材料时，使用此标签，例如甲骨释文、金文释文、出土文献片段、带编号的铭文行，或几乎没有现代解释的古代原始文本。
 
-Use this label when the snippet is irrelevant, too noisy, mostly navigation text, advertising text, login text, broken OCR, repeated formatting, or unrelated modern content.
-当片段无关、噪声过多、主要是网页导航、广告、登录提示、破碎 OCR、重复格式文本或无关现代内容时，使用此标签。
+Typical examples:
 
-Positive example type 1: webpage menu text such as login, register, search, previous page, next page, and share buttons.
-正例类型 1：登录、注册、搜索、上一页、下一页、分享按钮等网页菜单文字。
+- compact divination or inscription lines
+- bronze vessel inscription transcriptions
+- excavated manuscript fragments
+- source-text-like lines where the transcription itself is the useful content
 
-Positive example type 2: unrelated modern text about shopping, sports, weather, or course administration.
-正例类型 2：关于购物、体育、天气或课程事务的无关现代文本。
+典型例子：
 
-Negative example: noisy but still recognizable Shuowen OCR should usually be `keep_dictionary_entry` unless the noise makes it unusable.
-反例：有噪声但仍可识别的《说文》OCR 通常应标为 `keep_dictionary_entry`，除非噪声严重到不可用。
+- 简短的卜辞或铭文行
+- 青铜器铭文释文
+- 出土文献片段
+- 释文本身是主要有用内容的一手文本
 
-## General Annotation Rules
-## 通用标注规则
+Do not use this label for a modern paragraph that explains the historical value or interpretation of the text. That should usually be `ksd`.
+
+如果片段是现代段落，主要在解释文本的历史价值或释读问题，通常应标为 `ksd`。
+
+### `kde`: `keep_dictionary_entry`
+
+Use this label when the snippet is a dictionary-style, lexicon-style, or reference-style entry about a character, word, pronunciation, radical, gloss, form, variant, or short definition.
+
+当片段是关于字、词、读音、部首、训释、字形、异体或简短定义的字典式、词典式、工具书式条目时，使用此标签。
+
+Typical examples:
+
+- Shuowen-style character definitions
+- short lexical notes about character forms or meanings
+- entries with pronunciation, radical, gloss, or cross-reference information
+- reference notes that define a character rather than develop an argument
+
+典型例子：
+
+- 《说文》式字头解释
+- 关于字形或字义的简短词条
+- 包含读音、部首、训释或参见信息的条目
+- 主要功能是定义某字，而不是展开学术论证的工具书说明
+
+Do not use this label for extended scholarly argument. If the snippet discusses a research problem in prose, use `ksd`.
+
+如果片段展开的是学术论证，而不是词条式定义，应标为 `ksd`。
+
+### `noise`: `discard_noise_irrelevant`
+
+Use this label when the snippet is irrelevant, too noisy, mostly navigation text, administrative text, advertising, login text, broken OCR, repeated formatting, publication metadata, or unrelated modern content.
+
+当片段无关、噪声过多，或主要是网页导航、管理信息、广告、登录提示、破碎 OCR、重复格式、发布日期等元信息，或无关现代内容时，使用此标签。
+
+Typical examples:
+
+- login, register, search, previous page, next page, share, font-size controls
+- page publication-date lines or boilerplate metadata without useful content
+- unrelated modern text about shopping, weather, sports, or course administration
+- OCR fragments that are too broken to function as transcription or dictionary content
+
+典型例子：
+
+- 登录、注册、搜索、上一页、下一页、分享、字体大小等网页控件文本
+- 没有实质内容的发布日期或网页元信息
+- 关于购物、天气、体育、课程事务等无关现代文本
+- 破碎到无法作为释文或字典内容使用的 OCR 片段
+
+Do not use this label for noisy but still usable dictionary, transcription, or scholarly content. Label by the main usable function when possible.
+
+如果片段虽然有噪声但仍可作为字典条目、释文或学术内容使用，应尽量按主要可用功能标注，而不是直接标为噪声。
+
+## Decision Rules
+## 判定规则
 
 Label the snippet by its main function, not by a single keyword.
+
 根据片段的主要功能标注，而不是只根据单个关键词标注。
 
-If a snippet contains both metadata and transcription, choose `keep_primary_transcription` when the transcription is the useful dominant content.
-如果片段同时包含元数据和释文，且释文是主要有用内容，选择 `keep_primary_transcription`。
+If the useful dominant content is inscription or source text, choose `kpt`.
 
-If the text is mostly structured metadata without useful prose, transcription, or dictionary content, choose `discard_noise_irrelevant`.
-如果文本主要是结构化元数据，且没有有用论述、释文或字典内容，选择 `discard_noise_irrelevant`。
+如果主要有用内容是铭文、释文或一手文本，选择 `kpt`。
 
-Metadata and catalogue records are not a separate label in this version. They exist in the source environment, but because they are highly structured, they are treated as outside the main short-text classification task unless they include useful prose, transcription, or dictionary content.
-元数据和目录记录在此版本中不是单独标签。它们确实存在于数据来源环境中，但由于高度结构化，本项目将它们视为短文本分类任务之外的材料；除非其中包含有用论述、释文或字典内容，否则不作为保留类别处理。
+If the snippet defines a character, word, form, pronunciation, or gloss in a compact reference style, choose `kde`.
 
-If the text is mostly inscription or source text, choose `keep_primary_transcription`.
-如果文本主要是铭文或一手文本，选择 `keep_primary_transcription`。
+如果片段以紧凑工具书形式定义字、词、字形、读音或训释，选择 `kde`。
 
-If the text explains or discusses a topic in prose, choose `keep_scholarly_discussion`.
-如果文本以段落形式解释或讨论某个主题，选择 `keep_scholarly_discussion`。
+If the snippet explains, interprets, compares, cites research, or develops an argument in prose, choose `ksd`.
 
-If the text defines a character or word, choose `keep_dictionary_entry`.
-如果文本定义某个字或词，选择 `keep_dictionary_entry`。
+如果片段以段落形式解释、考释、比较、引用研究或展开论证，选择 `ksd`。
 
-If the text is not useful for a paleography corpus, choose `discard_noise_irrelevant`.
-如果文本对古文字学语料库没有用，选择 `discard_noise_irrelevant`。
+If the snippet is not useful for a paleography corpus, choose `noise`.
 
-## Data Collection Rules
-## 数据收集规则
+如果片段对古文字学语料库没有用，选择 `noise`。
 
-Keep snippets short and focused.
-保持片段简短且聚焦。
+If a snippet mixes metadata and transcription, choose `kpt` only when the transcription is the dominant useful content. If it is mostly structured metadata without useful prose, transcription, or dictionary content, choose `noise`.
 
-Recommended snippet length is 30 to 300 Chinese characters or 20 to 200 English words.
-推荐片段长度为 30 到 300 个汉字，或 20 到 200 个英文词。
+如果片段同时包含元数据和释文，只有当释文是主要有用内容时才选择 `kpt`。如果主要是结构化元数据，没有可用论述、释文或字典内容，选择 `noise`。
+
+Catalogue and metadata records are not a separate label in this version. Object numbers, collection IDs, bibliographic fields, and catalogue rows are treated as outside the main short-text classification task unless they contain useful prose, transcription, or dictionary content.
+
+本版本不把目录和元数据记录设为单独标签。器号、馆藏号、书目信息和目录行等高度结构化内容，除非包含有用论述、释文或字典内容，否则视为本短文本分类任务之外的材料。
+
+## Dataset Fields
+## 数据字段
+
+The final CSV files use five columns:
+
+最终 CSV 文件使用五个字段：
+
+| Field | Meaning |
+|---|---|
+| `id` | Unique sample identifier. |
+| `text` | Text snippet used as classifier input. |
+| `label` | One of `ksd`, `kpt`, `kde`, or `noise`. |
+| `source_url` | Public source URL or source reference. |
+| `language` | `chinese`, `english`, or `mixed`. |
+
+## Quality Rules
+## 质量规则
+
+Keep snippets short and focused. A practical range is about 30 to 300 Chinese characters, or 20 to 200 English words.
+
+片段应简短且聚焦。实际范围约为 30 到 300 个汉字，或 20 到 200 个英文词。
 
 Record the source URL whenever possible.
+
 尽可能记录来源 URL。
 
-Do not collect long copyrighted passages.
-不要收集大段受版权保护文本。
-
-Do not include real sensitive personal information.
-不要包含真实敏感个人信息。
-
 Avoid exact duplicate snippets.
+
 避免完全重复的文本片段。
 
-Use `chinese`, `english`, or `mixed` for the language field.
-语言字段使用 `chinese`、`english` 或 `mixed`。
+Do not collect real sensitive personal information.
 
-Use the five CSV columns `id`, `text`, `label`, `source_url`, and `language`.
-CSV 使用五个字段：`id`、`text`、`label`、`source_url` 和 `language`。
+不要收集真实敏感个人信息。
 
-## Day 2 Target Counts
-## 第二天目标数量
+Do not copy long copyrighted passages.
 
-| Label | Target Count | Minimum Count |
-|---|---:|---:|
-| `keep_scholarly_discussion` | 100 | 30 |
-| `keep_primary_transcription` | 100 | 30 |
-| `keep_dictionary_entry` | 100 | 30 |
-| `discard_noise_irrelevant` | 100 | 30 |
+不要复制大段受版权保护文本。
 
-The target dataset size is 400 samples.
-目标数据集规模是 400 条样本。
+Use public sources and do not bypass access restrictions.
 
-The minimum workable dataset size is 120 samples.
-最低可行数据集规模是 120 条样本。
+使用公开来源，不绕过访问限制。
