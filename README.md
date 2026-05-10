@@ -12,11 +12,9 @@ Can sentence embeddings help classify and filter web text snippets for inclusion
 
 ## Hugging Face Resources
 
-These links should be updated after publication:
-
-- Dataset: `TODO`
-- Model: `TODO`
-- Space demo: `TODO`
+- Dataset: https://huggingface.co/datasets/Harry214/paleography-web-text-triage-dataset
+- Model: https://huggingface.co/Harry214/paleography-web-text-triage-logreg
+- Space demo: https://huggingface.co/spaces/Harry214/paleography-web-text-triage-demo
 
 ## Label Set
 
@@ -103,6 +101,10 @@ The main error pattern is that `keep_scholarly_discussion` is sometimes confused
 
 Detailed reports are stored in `results/`, including classification reports, confusion matrices, and error files.
 
+An embedding visualization is also included in `report/figures/`. The t-SNE plot projects the saved E5 embeddings into two dimensions and marks the four Logistic Regression test errors with black crosses. It supports the error analysis: `kde`, `kpt`, and `noise` form more visible regions, while `ksd` is more scattered and often lies near neighboring classes.
+
+![t-SNE projection of E5 embeddings](report/figures/embedding_distribution_tsne.png)
+
 ## Demo
 
 The project includes a Gradio demo with English and Chinese interface modes. The interface can be shown in either language, but the classifier itself is intended mainly for Chinese paleography-related snippets. Users can paste a snippet and receive:
@@ -167,6 +169,14 @@ python src/svm.py --eval-split test
 
 The scripts reuse existing embedding files unless `--force-embeddings` is passed.
 
+Generate the PCA and t-SNE embedding visualizations:
+
+```bash
+python src/plot_embedding_distribution.py
+```
+
+This writes `.png` figures and projected coordinate `.csv` files to `report/figures/`.
+
 ## Repository Structure
 
 ```text
@@ -189,10 +199,17 @@ src/
   average_baseline.py
   embedding_utils.py
   logistic_regression.py
+  plot_embedding_distribution.py
   prepare_data.py
   svm.py
 report/
   bilingual_examples.md
+  report.tex
+  figures/
+    embedding_distribution_pca.csv
+    embedding_distribution_pca.png
+    embedding_distribution_tsne.csv
+    embedding_distribution_tsne.png
 app.py
 requirements.txt
 README.md
