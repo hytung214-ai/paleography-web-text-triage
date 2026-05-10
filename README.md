@@ -43,7 +43,8 @@ src/
   svm.py
 report/
   bilingual_examples.md
-  report.tex
+  report.pdf
+  report_full.tex
   figures/
     embedding_distribution_pca.*
     embedding_distribution_tsne.*
@@ -187,7 +188,8 @@ python src/plot_embedding_distribution.py
 
 - `annotation_guidelines.md`: labeling rules and class definitions
 - `source_used.md`: source list
-- `report/report.tex`: project report
+- `report/report.pdf`: compiled project report
+- `report/report_full.tex`: full LaTeX source for the project report
 - `report/bilingual_examples.md`: representative test examples with English glosses
 
 ## Privacy and Ethics
