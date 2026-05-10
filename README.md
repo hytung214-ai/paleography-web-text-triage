@@ -89,6 +89,8 @@ Then open:
 http://127.0.0.1:7860
 ```
 
+For users who do not read Chinese, `report/bilingual_examples.md` provides held-out test examples with English glosses. Use the original Chinese snippets from that file when testing the demo; the glosses are for interpretation only.
+
 ## Dataset
 
 The dataset contains 400 manually labeled Chinese snippets collected from public paleography-related web sources and reference pages. Each row contains:
