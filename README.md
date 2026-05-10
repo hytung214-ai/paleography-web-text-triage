@@ -89,7 +89,16 @@ Then open:
 http://127.0.0.1:7860
 ```
 
-For users who do not read Chinese, `report/bilingual_examples.md` provides held-out test examples with English glosses. Use the original Chinese snippets from that file when testing the demo; the glosses are for interpretation only.
+## Testing Without Chinese Knowledge
+
+The classifier was trained and evaluated on Chinese snippets. If you do not read Chinese, use `report/bilingual_examples.md` to test the demo. That file contains held-out test examples with:
+
+- the original Chinese snippet
+- the gold label
+- an English gloss
+- a short explanation of why the label fits
+
+When testing the Space or local demo, copy the **original Chinese snippet** into the input box. The English gloss is only there to help non-Chinese readers understand what the snippet means; it should not be used as model input. English inputs are outside the main training distribution and may be classified as `discard_noise_irrelevant`.
 
 ## Dataset
 
